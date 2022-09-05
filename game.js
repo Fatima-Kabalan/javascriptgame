@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded",function(){
     var start = document.getElementById("start")
+    start.onclick = function() {onclick()};
+    var game = document.getElementsByClassName("game");
+    for (var i = 0; i < game.length; i++) {
+        game[i].addEventListener("mouseclick", onclick);
+    }
+
+    var start = document.getElementById("start")
     start.onmouseover = function() {mouseOver()};
     function mouseOver() {
         start.style.color = "blue";
@@ -49,13 +56,6 @@ document.addEventListener("DOMContentLoaded",function(){
         boundaries[i].addEventListener("mouseover", mouseOver );
 
     }
-
-
-
-
-
-
-
 
     var boundaries = document.getElementsByClassName("boundary")
     window.addEventListener("load", function(){
