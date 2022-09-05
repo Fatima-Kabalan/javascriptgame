@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded",function(){
-    var start = document.getElementById("start")
-    start.onclick = function() {onclick()};
-    var game = document.getElementsByClassName("game");
-    for (var i = 0; i < game.length; i++) {
-        game[i].addEventListener("mouseclick", onclick);
-    }
+    // var start = document.getElementById("start")
+    // start.onclick = function() {onclick()};
+    // var game = document.getElementsByClassName("game");
+    // for (var i = 0; i < game.length; i++) {
+    //     game[i].addEventListener("mouseclick", onclick);
+    // }
 
+    // pressing on start to make the game starts
     var start = document.getElementById("start")
     start.onmouseover = function() {mouseOver()};
     function mouseOver() {
@@ -81,5 +82,16 @@ document.addEventListener("DOMContentLoaded",function(){
     
     
     })
+
+    //to make sure the user will not cheat and get the start box out from the maze and get it directly into the end
+    const specifiedElement = document.getElementById("start");
+    document.addEventListener("onmouseover", (event) => {
+    const isClickInside = specifiedElement.contains(event.target);
+    if (!isClickInside) {
+       start.style.color="purple";
+        } else {
+          console.log("You clicked inside");
+        }
+  });
     
 })    
